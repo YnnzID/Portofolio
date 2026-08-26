@@ -193,7 +193,7 @@ const ProjectDetails = () => {
             "author": {
               "@type": "Person",
               "name": "YnnzID",
-              "url": "https://YnnzID.com"
+              "url": "https://Ynnz.my.id"
             }
           }
         `}</script>

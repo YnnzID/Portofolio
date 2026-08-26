@@ -94,7 +94,7 @@ const Home = () => {
 
   // State profil dari Supabase
   const [profile, setProfile] = useState({
-    name: 'Eki Zulfar Rachman',
+    name: 'YnnzID',
     bio: 'Menciptakan Website Yang Inovatif, Fungsional, dan User-Friendly untuk Solusi Digital.',
     avatar_url: 'Animation1.gif'
   })
@@ -168,10 +168,10 @@ const Home = () => {
         <title>{profile.name} — Frontend Web Developer</title>
         <meta name="description" content={profile.bio} />
         <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://ekizr.com" />
+        <link rel="canonical" href="https://ynnz.my.id" />
         <meta property="og:title" content={`${profile.name} — Frontend Web Developer`} />
         <meta property="og:description" content={profile.bio} />
-        <meta property="og:url" content="https://ekizr.com" />
+        <meta property="og:url" content="https://ynnz.my.id" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
