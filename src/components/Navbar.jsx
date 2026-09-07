@@ -1,3 +1,4 @@
+```jsx
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -11,12 +12,16 @@ const Navbar = () => {
         { href: "#About", label: "About" },
         { href: "#Portofolio", label: "Portofolio" },
         { href: "#Contact", label: "Contact" },
+        { href: "https://music.ynnz.my.id", label: "Music", external: true },
     ];
 
     useEffect(() => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
-            const sections = navItems.map(item => {
+            
+            // Filter hanya section yang ada di dalam halaman (bukan external link)
+            const internalItems = navItems.filter(item => !item.external);
+            const sections = internalItems.map(item => {
                 const section = document.querySelector(item.href);
                 if (section) {
                     return {
@@ -94,11 +99,11 @@ const Navbar = () => {
                                 <a
                                     key={item.label}
                                     href={item.href}
-                                    onClick={(e) => scrollToSection(e, item.href)}
+                                    {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : { onClick: (e) => scrollToSection(e, item.href) })}
                                     className="group relative px-1 py-2 text-sm font-medium"
                                 >
                                     <span
-                                        className={`relative z-10 transition-colors duration-300 ${activeSection === item.href.substring(1)
+                                        className={`relative z-10 transition-colors duration-300 ${!item.external && activeSection === item.href.substring(1)
                                             ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
                                             : "text-[#e2d3fd] group-hover:text-white"
                                             }`}
@@ -106,7 +111,7 @@ const Navbar = () => {
                                         {item.label}
                                     </span>
                                     <span
-                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] transform origin-left transition-transform duration-300 ${activeSection === item.href.substring(1)
+                                        className={`absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-[#6366f1] to-[#a855f7] transform origin-left transition-transform duration-300 ${!item.external && activeSection === item.href.substring(1)
                                             ? "scale-x-100"
                                             : "scale-x-0 group-hover:scale-x-100"
                                             }`}
@@ -145,8 +150,8 @@ const Navbar = () => {
                         <a
                             key={item.label}
                             href={item.href}
-                            onClick={(e) => scrollToSection(e, item.href)}
-                            className={`block px-4 py-3 text-lg font-medium transition-all duration-300 ease ${activeSection === item.href.substring(1)
+                            {...(item.external ? { target: "_blank", rel: "noopener noreferrer" } : { onClick: (e) => scrollToSection(e, item.href) })}
+                            className={`block px-4 py-3 text-lg font-medium transition-all duration-300 ease ${!item.external && activeSection === item.href.substring(1)
                                 ? "bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent font-semibold"
                                 : "text-[#e2d3fd] hover:text-white"
                                 }`}
@@ -166,3 +171,5 @@ const Navbar = () => {
 };
 
 export default Navbar;
+
+```
