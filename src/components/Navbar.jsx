@@ -1,4 +1,3 @@
-```jsx
 import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 
@@ -19,7 +18,6 @@ const Navbar = () => {
         const handleScroll = () => {
             setScrolled(window.scrollY > 20);
             
-            // Filter hanya section yang ada di dalam halaman (bukan external link)
             const internalItems = navItems.filter(item => !item.external);
             const sections = internalItems.map(item => {
                 const section = document.querySelector(item.href);
@@ -72,12 +70,13 @@ const Navbar = () => {
 
     return (
         <nav
-            className={`fixed w-full top-0 z-50 transition-all duration-500 ${isOpen
-                ? "bg-[#030014]"
-                : scrolled
-                    ? "bg-[#030014]/50 backdrop-blur-xl"
-                    : "bg-transparent"
-                }`}
+            className={`fixed w-full top-0 z-50 transition-all duration-500 ${
+                isOpen
+                    ? "bg-[#030014]"
+                    : scrolled
+                        ? "bg-[#030014]/50 backdrop-blur-xl"
+                        : "bg-transparent"
+            }`}
         >
             <div className="mx-auto px-[5%] sm:px-[5%] lg:px-[10%]">
                 <div className="flex items-center justify-between h-16">
@@ -125,8 +124,9 @@ const Navbar = () => {
                     <div className="md:hidden">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
-                                }`}
+                            className={`relative p-2 text-[#e2d3fd] hover:text-white transition-transform duration-300 ease-in-out transform ${
+                                isOpen ? "rotate-90 scale-125" : "rotate-0 scale-100"
+                            }`}
                         >
                             {isOpen ? (
                                 <X className="w-6 h-6" />
@@ -140,10 +140,11 @@ const Navbar = () => {
 
             {/* Mobile Menu */}
             <div
-                className={`md:hidden transition-all duration-300 ease-in-out ${isOpen
-                    ? "max-h-screen opacity-100"
-                    : "max-h-0 opacity-0 overflow-hidden"
-                    }`}
+                className={`md:hidden transition-all duration-300 ease-in-out ${
+                    isOpen
+                        ? "max-h-screen opacity-100"
+                        : "max-h-0 opacity-0 overflow-hidden"
+                }`}
             >
                 <div className="px-4 py-6 space-y-4">
                     {navItems.map((item, index) => (
@@ -171,5 +172,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-```
