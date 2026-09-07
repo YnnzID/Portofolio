@@ -1,5 +1,12 @@
 {
   "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+    {
+      "source": "/music/(.*)",
+      "destination": "https://app-ynnz.vercel.app/$1"
+    },
+    {
+      "source": "/music",
+      "destination": "https://app-ynnz.vercel.app/"
+    }
   ]
 }
