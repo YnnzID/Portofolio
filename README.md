@@ -1,10 +1,10 @@
 # Portfolio V5
 
-Hello everyone\! 👋
+Hello everyone! 👋
 
-Let me introduce myself, I'm **Eki Zulfar Rachman**. On this occasion, I'd like to share the portfolio website project that I've developed. built with React and Supabase, featuring a public-facing site and an admin dashboard.
+Let me introduce myself, I'm **YnnzID**. On this occasion, I'd like to share the portfolio website project that I've developed, built with React and Supabase, featuring a public-facing site and an admin dashboard.
 
-**Live Demo:** [https://ekizr.com](https://ekizr.com)
+**Live Demo:** [https://ynnz.my.id](https://ynnz.my.id)
 
 ---
 
@@ -12,21 +12,21 @@ Let me introduce myself, I'm **Eki Zulfar Rachman**. On this occasion, I'd like 
 
 This project is built using modern web technologies:
 
-  - **ReactJS** - Frontend framework
-  - **Tailwind CSS** - Utility-first CSS framework
-  - **Supabase** - Backend for portfolio data, certificates, and comment system
-  - **AOS** - Animate On Scroll library
-  - **Framer Motion** - Animation library
-  - **Lucide** - Icon library
-  - **Material UI** - React component library
-  - **SweetAlert2** - Beautiful alert dialogs
+* **ReactJS** - Frontend framework
+* **Tailwind CSS** - Utility-first CSS framework
+* **Supabase** - Backend for portfolio data, certificates, and comment system
+* **AOS** - Animate On Scroll library
+* **Framer Motion** - Animation library
+* **Lucide** - Icon library
+* **Material UI** - React component library
+* **SweetAlert2** - Beautiful alert dialogs
 
 ---
 
 ## User Roles
 
 | Role | Access |
-|---|---|
+| --- | --- |
 | **Visitor (Public)** | View projects, certificates, and comments — leave a comment |
 | **Admin** | Login to dashboard — full CRUD on projects & certificates — delete & pin/unpin comments |
 
@@ -36,15 +36,16 @@ This project is built using modern web technologies:
 
 ### Prerequisites
 
-- Node.js `>= 14.x`
-- npm or yarn
+* Node.js `>= 14.x`
+* npm or yarn
 
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/EkiZR/Portofolio_V5.git
-cd Portofolio_V5
+git clone https://github.com/YnnzID/Portofolio.git
+cd Portofolio
 npm install
+
 ```
 
 > If you encounter peer dependency issues: `npm install --legacy-peer-deps`
@@ -56,9 +57,10 @@ Create a `.env` file in the root directory:
 ```env
 VITE_SUPABASE_URL=your-supabase-project-url
 VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
+
 ```
 
-> Find these in your Supabase project under **Settings → API**.  
+> Find these in your Supabase project under **Settings → API**.
 > ⚠️ Never commit `.env` to version control — make sure it's in `.gitignore`.
 
 ### 3. Supabase Client (`src/supabase.js`)
@@ -74,6 +76,7 @@ if (!supabaseUrl || !supabaseKey) {
 }
 
 export const supabase = createClient(supabaseUrl, supabaseKey)
+
 ```
 
 ### 4. Database Setup
@@ -245,8 +248,8 @@ INSERT INTO public.portfolio_comments (
   created_at
 )
 SELECT
-  'developed by ekizr. This project is open-source and free to use.',
-  'ekizr',
+  'developed by YnnzID. This project is open-source and free to use.',
+  'YnnzID',
   'https://egwzigagwyrmwjsrebzx.supabase.co/storage/v1/object/public/profile-images/profile-images/1771939421615_xx2q8hgya6e.jpeg',
   true,
   now()
@@ -255,6 +258,7 @@ WHERE NOT EXISTS (
   FROM public.portfolio_comments
   WHERE is_pinned = true
 );
+
 ```
 
 ### 5. Enable Realtime (Comments)
@@ -269,13 +273,15 @@ Go to **Table Editor → portfolio_comments → Enable Realtime**.
 
 ```sql
 INSERT INTO public.profiles (id, username, role)
-VALUES ('USER_UUID', 'eki', 'admin');
+VALUES ('USER_UUID', 'YnnzID', 'admin');
+
 ```
 
 ### 7. Run Locally
 
 ```bash
 npm run dev
+
 ```
 
 Open `http://localhost:5173` in your browser.
@@ -285,17 +291,19 @@ Open `http://localhost:5173` in your browser.
 ## Pages & Features
 
 ### Public (Visitor)
-- **Home** — Hero section, about, skills
-- **Projects** — List of published projects with detail modal
-- **Certificates** — Certificate gallery
-- **Comments** — View all comments, submit a new comment with name and optional profile photo
+
+* **Home** — Hero section, about, skills
+* **Projects** — List of published projects with detail modal
+* **Certificates** — Certificate gallery
+* **Comments** — View all comments, submit a new comment with name and optional profile photo
 
 ### Admin (Dashboard)
-- **Login Page** — Email & password authentication via Supabase Auth
-- **Dashboard** — Overview panel after login
-- **Projects** — Create, edit, delete projects; manage image, links, features, tech stack, publish status, and order
-- **Certificates** — Upload and delete certificate images
-- **Comments** — View all comments; pin/unpin for highlighting; delete inappropriate comments
+
+* **Login Page** — Email & password authentication via Supabase Auth
+* **Dashboard** — Overview panel after login
+* **Projects** — Create, edit, delete projects; manage image, links, features, tech stack, publish status, and order
+* **Certificates** — Upload and delete certificate images
+* **Comments** — View all comments; pin/unpin for highlighting; delete inappropriate comments
 
 ---
 
@@ -303,6 +311,7 @@ Open `http://localhost:5173` in your browser.
 
 ```bash
 npm run build
+
 ```
 
 Upload the contents of the `dist/` folder to your hosting provider.
@@ -311,8 +320,9 @@ Upload the contents of the `dist/` folder to your hosting provider.
 
 ## Credits & Contact
 
-**Eki Zulfar Rachman**  
-Website: [eki.my.id](https://ekizr.com) · GitHub: [EkiZR](https://github.com/EkiZR)
+**YnnzID**
+
+Website: [ynnz.my.id](https://ynnz.my.id) · GitHub: [YnnzID](https://www.google.com/search?q=https://github.com/YnnzID)
 
 Thanks to [LottieFiles](https://lottiefiles.com/free-animation/coding-NWhbxMOVgP) and Claude.
 
